@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: gray;
+        }
+
+        #box {
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="box" width="800" height="800"></canvas>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box")
+            var arr = box.getContext('2d');
+            arr.fillStyle = "pink";
+            var x = 0;
+            var y = 0;
+            var box1 = setInterval(function () {
+                arr.clearRect(0, 0, box.width, box.height);
+                if (y == 0 && x < 700) {
+                    x++;
+                }
+                else if(x==700&&y<700){
+                    y++;
+                }else if(y==700&&x>0){
+                    x--;
+                }else if(x==0&&y>0){
+                    y--;
+                }
+                arr.fillRect(x, y, 100, 100);
+            }, 5);
+
+
+
+
+        }
+
+    </script>
+</body>
+
+</html>
